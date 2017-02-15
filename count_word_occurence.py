@@ -34,14 +34,20 @@ class WordCounter:
     def __init__(self, description=None):
         self.description = "This is the word occurence counter"
         self.counter = dict()
+
     def add(self, word=""):
         lc = word.lower()
         if lc in self.counter:
             self.counter[lc] += 1
         else:
             self.counter[lc] = 0
+
+    def sort(self):
+        pass
+
     def lookup(self, word):
         return self.counter[word.lower()]
+
     def report(self):
         pass
 
