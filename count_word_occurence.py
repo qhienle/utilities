@@ -33,7 +33,7 @@ def parse_arguments():
 class WordCounter:
     def __init__(self, description=None):
         self.description = "This is the word occurence counter"
-        self.counter = dict()
+        self.counter = {}
 
     def add(self, word=""):
         lc = word.lower()
@@ -58,7 +58,7 @@ def main():
     #all_words = {}
     counter = WordCounter()
     with open (args.infile, "rb")as infile:
-        for line in infile.readlines():
+        for line in infile:
             words = line.split()
             for word in words:
                 counter.add(word)

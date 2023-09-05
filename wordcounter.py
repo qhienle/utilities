@@ -15,7 +15,7 @@ __author__  = "hien.le@vlimagrain.com"
 class WordCounter:
     def __init__(self, description=None):
         self.description = "This is the word occurence counter"
-        self.counter = dict()
+        self.counter = {}
 
     def add(self, word=""):
         lc = word.lower()
@@ -41,13 +41,13 @@ class WordCounter:
 def main():
     counter = WordCounter()
     with open (args.infile, "rb")as infile:
-        for line in infile.readlines():
+        for line in infile:
             words = line.split()
             for word in words:
                 counter.add(word)
     competitors = ["bayer", "nunhems", "syngenta", "basf", "dow", "monsanto", "dupont", "pioneer", "seminis", "sakata", "kws", "rijk", "zwaan", "enza", "bejo", "takii", "limagrain"]
     for competitor in competitors:
-        print( "{}, {}".format(competitor, counter.lookup(competitor)))
+        print(f"{competitor}, {counter.lookup(competitor)}")
     counter.report()
 
 if __name__ == "__main__":
